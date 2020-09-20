@@ -34,14 +34,14 @@ $ go run main.go
 
 - `local`: basically, the default behavior of plugins
 - `remote`: fetch a plugin from a remote location and download it in the `$XDG_CACHE` directory
-- `embedded`: extract a plugin package with `pkger` from a Go binary 
+- `embedded`: extract a plugin packaged with `pkger` from a Go binary 
 
 ## Contributing
 
 Just create a new dir in the `plugin/` directory:
 
 ```shell
-mkdir plugin/my-new-plugin-type
+mkdir my-new-plugin-type
 ```
 
 Then, you just need to define a structure implementing the `plugin.Plugin` interface:
