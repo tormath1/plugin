@@ -1,5 +1,7 @@
 # Plugin
 
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/tormath1/plugin)](https://pkg.go.dev/github.com/tormath1/plugin)
+
 The goal of this lib is to provide a set of API to load plugins from different locations (remote, local, etc.)
 
 ## Supported plugin types
