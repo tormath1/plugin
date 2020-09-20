@@ -4,6 +4,22 @@
 
 The goal of this lib is to provide a set of API to load plugins from different locations (remote, local, etc.)
 
+## Example
+
+Let's suppose one plugin is stored remotely:
+
+```go
+package main
+
+import "github.com/tormath1/plugin/factory"
+
+func main() {
+	loader, _ := factory.Get("remote")
+	loader.URL = "https://my-remote-location"
+	loader.Open("my-plugin.so")
+}
+```
+
 ## Supported plugin types
 
 - `local`: basically, the default behavior of plugins
