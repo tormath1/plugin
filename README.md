@@ -6,18 +6,28 @@ The goal of this lib is to provide a set of API to load plugins from different l
 
 ## Example
 
-Let's suppose one plugin is stored remotely:
+Let's suppose one plugin is stored locally:
 
 ```go
 package main
 
-import "github.com/tormath1/plugin/factory"
+import (
+        "fmt"
+
+        "github.com/tormath1/plugin/factory"
+)
 
 func main() {
-	loader, _ := factory.Get("remote")
-	loader.URL = "https://my-remote-location"
-	loader.Open("my-plugin.so")
+        loader, _ := factory.Get("local")
+        p, _ := loader.Open("/tmp/plugin.so")
+        fmt.Printf("%T\n", p)
 }
+```
+
+Then:
+```shell
+$ go run main.go
+*plugin.Plugin
 ```
 
 ## Supported plugin types
