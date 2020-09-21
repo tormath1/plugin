@@ -7,3 +7,10 @@ $(ENUMER):
 .PHONY: generate
 generate: $(ENUMER)
 	@go generate ./...
+
+.PHONY: test
+test: generate
+	@go build -buildmode=plugin -o testdata/plugin.so testdata/plugin.go
+	@go test -v ./...
+	@rm -f testdata/plugin.so
+
