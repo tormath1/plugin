@@ -14,11 +14,12 @@ package main
 import (
         "fmt"
 
+        "github.com/tormath1/plugin"
         "github.com/tormath1/plugin/factory"
 )
 
 func main() {
-        loader, _ := factory.Get("local")
+        loader, _ := factory.Get(plugin.Local)
         p, _ := loader.Open("/tmp/plugin.so")
         fmt.Printf("%T\n", p)
 }

@@ -18,15 +18,10 @@ var (
 )
 
 // Get returns the specific Plugin for t
-func Get(t string) (plugin.Plugin, error) {
-	ts, err := plugin.TypeString(t)
-	if err != nil {
-		return nil, fmt.Errorf("no plugin type for: %s", ts)
-	}
-
-	p, ok := plugins[ts]
+func Get(t plugin.Type) (plugin.Plugin, error) {
+	p, ok := plugins[t]
 	if !ok {
-		return nil, fmt.Errorf("no plugin defined for: %s", ts)
+		return nil, fmt.Errorf("no plugin defined for: %s", t.String())
 	}
 	return p, nil
 }
