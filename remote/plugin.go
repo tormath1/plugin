@@ -30,7 +30,7 @@ func (r Remote) Open(path string) (*plugin.Plugin, error) {
 	}
 	body := res.Body
 	defer body.Close()
-	cacheFilePath, err := xdg.CacheFile(fmt.Sprintf("plugin-%s.so", uuid.New().String()))
+	cacheFilePath, err := xdg.CacheFile(fmt.Sprintf("plugins/plugin-%s.so", uuid.New().String()))
 	dest, err := os.Create(cacheFilePath)
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to create plugin destination file")
